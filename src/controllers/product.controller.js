@@ -68,7 +68,7 @@ export const updateProduct = async (request, response, next) => {
 export const deleteProduct = async (request, response, next) => {
   try {
     const { productId } = request.params
-    const product = await ProductModel.findOneAndDelete(productId)
+    const product = await ProductModel.findByIdAndDelete(productId)
 
     if (!product) {
       return response.status(400).send({ error: 'Entered id not exists' })
